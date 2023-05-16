@@ -6,6 +6,7 @@ CFLAGS += -Wextra
 CFLAGS += -Werror
 
 SRCS += main.c
+SRCS += pre_sort.c
 
 SRCS_PATH = srcs/
 
