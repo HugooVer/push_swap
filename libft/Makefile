@@ -59,6 +59,7 @@ SRCS += ft_lstlast.c
 SRCS += ft_lstmap.c
 SRCS += ft_lstnew.c
 SRCS += ft_lstsize.c
+SRCS += ft_bubble_sort.c
 
 
 ## ft_printf ##
