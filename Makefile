@@ -7,6 +7,8 @@ CFLAGS += -Werror
 
 SRCS += main.c
 SRCS += pre_sort.c
+SRCS += swap.c
+SRCS += push.c
 
 SRCS_PATH = srcs/
 
