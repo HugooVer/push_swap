@@ -9,6 +9,8 @@ SRCS += main.c
 SRCS += pre_sort.c
 SRCS += swap.c
 SRCS += push.c
+SRCS += rotate.c
+SRCS += reverse_rotate.c
 
 SRCS_PATH = srcs/
 
