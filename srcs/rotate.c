@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:42:33 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/17 16:19:44 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/17 19:31:33 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,37 @@
 
 void	rotate_a(t_stack *stack)
 {
-	int	tmp;
-	int	idx;
+	int	a;
+	int	b;
 
-	tmp = stack->data[stack->idx_a];
-	idx = stack->idx_a + 1;
-	while (idx < stack->size)
+	a = stack->idx_a;
+	b = a + 1;
+	while (b < stack->size)
 	{
-		stack->data[idx - 1] = stack->data[idx];
-		++idx;
+		stack->data[b] ^= stack->data[a];
+		stack->data[a] ^= stack->data[b];
+		stack->data[b] ^= stack->data[a];
+		++a;
+		++b;
 	}
-	stack->data[stack->size] = tmp;
 	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack *stack)
 {
-	int	tmp;
-	int	idx;
+	int	a;
+	int	b;
 
-	tmp = stack->data[stack->idx_a - 1];
-	idx = stack->idx_a - 2;
-	while (idx > 0)
+	a = stack->idx_a - 1;
+	b = a - 1;
+	while (b >= 0)
 	{
-		stack->data[idx - 1] = stack->data[idx];
-		--idx;
+		stack->data[a] ^= stack->data[b];
+		stack->data[b] ^= stack->data[a];
+		stack->data[a] ^= stack->data[b];
+		--a;
+		--b;
 	}
-	stack->data[0] = tmp;
 	ft_printf("rb\n");
 }
 
