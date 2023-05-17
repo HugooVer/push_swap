@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:13:45 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/17 15:41:02 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:19:52 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	push_a(t_stack *stack)
 {
 	stack->idx_a = stack->idx_a + 1;
+	ft_printf("pa\n");
 }
 
 void	push_b(t_stack *stack)
 {
 	stack->idx_a = stack->idx_a - 1;
+	ft_printf("pb\n");
 }
