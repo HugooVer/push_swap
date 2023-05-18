@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/18 17:35:39 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:52:03 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	duplicate(t_stack *stack)
 		{
 			if (stack->data[idx] == stack->data[jdx])
 			{
-				ft_printf("%i == %i\nError\n", stack->data[idx], stack->data[jdx]);
+				ft_printf("Error\n");
 				free(stack->data);
 				exit(EXIT_FAILURE);
 			}
