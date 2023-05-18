@@ -11,6 +11,7 @@ SRCS += swap.c
 SRCS += push.c
 SRCS += rotate.c
 SRCS += reverse_rotate.c
+SRCS += error_management.c
 
 SRCS_PATH = srcs/
 

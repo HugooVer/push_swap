@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:05:11 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/17 17:13:26 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:55:38 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
+
+# include <limits.h>
 
 typedef struct s_stack	t_stack;
 
@@ -29,6 +31,7 @@ struct s_stack
 char	*char_to_int(char **argv, t_stack *stack);
 void	pre_sort(t_stack *stack);
 
+void	not_digit(char *test);
 
 void	swap_a(t_stack *stack);
 void	swap_b(t_stack *stack);

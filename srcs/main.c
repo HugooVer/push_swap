@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:24 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/17 19:38:40 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:23:13 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,25 @@ int	main(int argc, char **argv)
 	idx = 0;
 	while (idx < stack.size)
 	{
-		printf("%i	", stack.data[idx]);
+		ft_printf("%i	", stack.data[idx]);
 		++idx;
 	}
-	printf("\n");
+	ft_printf("\n");
 	pre_sort(&stack);
 	idx = 0;
 	while (idx < stack.size)
 	{
-		printf("%i	", stack.data[idx]);
+		ft_printf("%i	", stack.data[idx]);
 		++idx;
 	}
-	printf("\n");
+	ft_printf("\n");
 	reverse_rotate_a(&stack);
 	idx = 0;
 	while (idx <= stack.size - 1)
 	{
-		printf("%i	", stack.data[idx]);
+		ft_printf("%i	", stack.data[idx]);
 		++idx;
 	}
-	printf("\n");
+	ft_printf("\n");
 	free(stack.data);
 }
