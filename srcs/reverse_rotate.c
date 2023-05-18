@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:55:49 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/17 19:57:29 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/18 10:22:56 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ void	reverse_rotate_a(t_stack *stack)
 {
 	int	a;
 	int	b;
+	int	idx;
 
-	a = stack->size + 1;
+	a = stack->size - 1;
 	b = a - 1;
-	while (b > stack->idx_a)
+	while (b >= stack->idx_a)
 	{
 		stack->data[a] ^= stack->data[b];
 		stack->data[b] ^= stack->data[a];
 		stack->data[a] ^= stack->data[b];
 		--a;
 		--b;
+	idx = 0;
 	}
 	ft_printf("rra\n");
 }
@@ -35,15 +37,15 @@ void	reverse_rotate_b(t_stack *stack)
 	int	a;
 	int	b;
 
-	a = stack->idx_a - 1;
-	b = a - 1;
-	while (b >= 0)
+	a = 0;
+	b = a + 1;
+	while (b < stack->idx_a)
 	{
-		stack->data[a] ^= stack->data[b];
 		stack->data[b] ^= stack->data[a];
 		stack->data[a] ^= stack->data[b];
-		--a;
-		--b;
+		stack->data[b] ^= stack->data[a];
+		++a;
+		++b;
 	}
 	ft_printf("rrb\n");
 }
