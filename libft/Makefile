@@ -12,6 +12,7 @@ AR = ar rc
 ## libft ##
 
 SRCS += ft_atoi.c
+SRCS += ft_atoi_maxint.c
 SRCS += ft_bzero.c
 SRCS += ft_calloc.c
 SRCS += ft_isalnum.c

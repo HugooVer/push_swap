@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:04:10 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/19 11:12:56 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/19 11:13:27 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_bubble_sort(int *tab, int size);
+int		ft_atoi_maxint(const char *nptr, int *nb);
 
 #endif
