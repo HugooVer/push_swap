@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:04:10 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/18 16:52:25 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/19 11:12:56 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_list	t_list;
 
