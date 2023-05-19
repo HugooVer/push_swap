@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 12:01:24 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/19 11:25:10 by hvercell         ###   ########.fr       */
+/*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
+/*   Updated: 2023/05/19 20:05:37 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_3(t_stack *stack)
 {
-	t_stack	stack;
 
-	first_things(argc, argv, &stack);
-	sort(&stack);
-	free(stack.data);
+}
+
+void	sort(t_stack *stack)
+{
+	sort_3(stack);
 }
