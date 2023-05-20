@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:46:26 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 15:48:24 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 16:05:23 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	first_things(int argc, char **argv, t_stack *s)
 	s->idx_a = 0;
 	char_to_int(argv, s);
 	pre_sort(s);
+	if (is_sorted_in_a(s) == 1)
+		last_thing(s);
 }
 
 void	last_thing(t_stack *s)
