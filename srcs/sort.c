@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 13:43:44 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:03:50 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,8 @@ void	sort_5(t_stack *s)
 	int	idx;
 
 	idx = s->size;
-	while (idx > 3)
-	{
-		push_b(s);
-		--idx;
-	}
+	while (push_b(s), --idx > 3)
+		;
 	sort_3(s);
 }
 
