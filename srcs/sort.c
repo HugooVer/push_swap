@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 16:02:41 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:55:43 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	sort_3(t_stack *s)
 				reverse_rotate_a(s);
 			}
 		}
+		else
+			swap_a(s);
 	}
 	else
 	{
@@ -61,11 +63,24 @@ void	sort_3(t_stack *s)
 void	sort_5(t_stack *s)
 {
 	int	idx;
+	int	i;
 
 	idx = s->size;
-	while (push_b(s), --idx > 3)
-		;
+	i = 0;
+	while (idx > 3)
+	{
+		while (s->data[s->idx_a] != i)
+			rotate_a(s);
+		push_b(s);
+		++i;
+		--idx;
+	}
 	sort_3(s);
+	while (idx < s->size)
+	{
+		push_a(s);
+		++idx;
+	}
 }
 
 void	sort(t_stack *s)
