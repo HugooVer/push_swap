@@ -13,6 +13,7 @@ SRCS += rotate.c
 SRCS += reverse_rotate.c
 SRCS += error_management.c
 SRCS += sort.c
+SRCS += data_set.c
 
 SRCS_PATH = srcs/
 

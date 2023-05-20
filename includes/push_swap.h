@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:05:11 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/19 11:24:19 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:49:06 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ struct s_stack
 	int	*data;
 };
 
+void	last_thing(t_stack *s);
 void	first_things(int argc, char **argv, t_stack *stack);
+
 char	*char_to_int(char **argv, t_stack *stack);
 void	pre_sort(t_stack *stack);
 

@@ -6,19 +6,11 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 15:35:40 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:47:13 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	first_things(int argc, char **argv, t_stack *s)
-{
-	s->size = argc - 1;
-	s->idx_a = 0;
-	char_to_int(argv, s);
-	pre_sort(s);
-}
 
 char	*char_to_int(char **argv, t_stack *s)
 {
