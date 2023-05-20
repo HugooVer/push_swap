@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 14:03:50 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:37:49 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	sort_5(t_stack *s)
 	sort_3(s);
 }
 
-void	sort(t_stack *stack)
+void	sort(t_stack *s)
 {
-	if (stack->size <= 3)
-		sort_3(stack);
+	if (s->size <= 3)
+		sort_3(s);
 	else
-		sort_5(stack);
+		sort_5(s);
 }

@@ -6,21 +6,21 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/19 11:25:27 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:35:40 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	first_things(int argc, char **argv, t_stack *stack)
+void	first_things(int argc, char **argv, t_stack *s)
 {
-	stack->size = argc - 1;
-	stack->idx_a = 0;
-	char_to_int(argv, stack);
-	pre_sort(stack);
+	s->size = argc - 1;
+	s->idx_a = 0;
+	char_to_int(argv, s);
+	pre_sort(s);
 }
 
-char	*char_to_int(char **argv, t_stack *stack)
+char	*char_to_int(char **argv, t_stack *s)
 {
 	int	idx;
 
@@ -30,16 +30,16 @@ char	*char_to_int(char **argv, t_stack *stack)
 		not_digit(argv[idx]);
 		++idx;
 	}
-	stack->data = malloc(sizeof(int) * stack->size);
-	if (stack->data == NULL)
+	s->data = malloc(sizeof(int) * s->size);
+	if (s->data == NULL)
 		return (NULL);
 	idx = 1;
 	while (argv[idx] != NULL)
 	{
-		if (ft_atoi_maxint(argv[idx], &stack->data[idx - 1]) == 1)
+		if (ft_atoi_maxint(argv[idx], &s->data[idx - 1]) == 1)
 		{
 			ft_printf("Error\n");
-			free(stack->data);
+			free(s->data);
 			exit(EXIT_FAILURE);
 		}
 		++idx;
@@ -47,21 +47,21 @@ char	*char_to_int(char **argv, t_stack *stack)
 	return ("0");
 }
 
-void	duplicate(t_stack *stack)
+void	duplicate(t_stack *s)
 {
 	int	idx;
 	int	jdx;
 
 	idx = 0;
-	while (idx < stack->size)
+	while (idx < s->size)
 	{
 		jdx = idx + 1;
-		while (jdx < stack->size)
+		while (jdx < s->size)
 		{
-			if (stack->data[idx] == stack->data[jdx])
+			if (s->data[idx] == s->data[jdx])
 			{
 				ft_printf("Error\n");
-				free(stack->data);
+				free(s->data);
 				exit(EXIT_FAILURE);
 			}
 			++jdx;
@@ -70,16 +70,16 @@ void	duplicate(t_stack *stack)
 	}
 }
 
-int	*stack_copy(int *in_stack, t_stack *stack)
+int	*stack_copy(int *in_stack, t_stack *s)
 {
 	int	idx;
 	int	*out_stack;
 
-	out_stack = malloc(sizeof(int) * stack->size);
+	out_stack = malloc(sizeof(int) * s->size);
 	if (out_stack == NULL)
 		return (NULL);
 	idx = 0;
-	while (idx < stack->size)
+	while (idx < s->size)
 	{
 		out_stack[idx] = in_stack[idx];
 		++idx;
@@ -87,25 +87,25 @@ int	*stack_copy(int *in_stack, t_stack *stack)
 	return (out_stack);
 }
 
-void	pre_sort(t_stack *stack)
+void	pre_sort(t_stack *s)
 {
 	int	idx;
 	int	jdx;
 	int	*tmp_stack;
 	int	*tmp_stack0;
 
-	duplicate(stack);
-	tmp_stack = stack_copy(stack->data, stack);
-	tmp_stack0 = stack_copy(stack->data, stack);
-	ft_bubble_sort(tmp_stack, stack->size);
+	duplicate(s);
+	tmp_stack = stack_copy(s->data, s);
+	tmp_stack0 = stack_copy(s->data, s);
+	ft_bubble_sort(tmp_stack, s->size);
 	idx = 0;
 	jdx = 0;
-	while (idx < stack->size)
+	while (idx < s->size)
 	{
-		while (jdx < stack->size)
+		while (jdx < s->size)
 		{
 			if (tmp_stack[idx] == tmp_stack0[jdx])
-				stack->data[jdx] = idx;
+				s->data[jdx] = idx;
 			++jdx;
 		}
 		jdx = 0;
