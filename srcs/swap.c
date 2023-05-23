@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:45:52 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 15:37:25 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:52:01 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,13 @@ void	swap_b(t_stack *s)
 
 void	swap_a_b(t_stack *s)
 {
-	swap_a(s);
-	swap_b(s);
+	int	tmp;
+
+	tmp = s->data[s->idx_a];
+	s->data[s->idx_a] = s->data[s->idx_a + 1];
+	s->data[s->idx_a + 1] = tmp;
+	tmp = s->data[s->idx_a - 1];
+	s->data[s->idx_a - 1] = s->data[s->idx_a];
+	s->data[s->idx_a] = tmp;
 	ft_printf("ss\n");
 }
