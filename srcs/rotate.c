@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:42:33 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/23 14:50:29 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:11:37 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void	rotate_a_b(t_stack *s)
 		--a;
 		--b;
 	}
-	printf("rr\n");
+	ft_printf("rr\n");
 }
