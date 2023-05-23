@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/21 19:56:36 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:51:17 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,20 @@ void	sort_3(t_stack *s)
 	}
 }
 
-// void	sort_5(t_stack *s)
-// {
-// 	int	idx;
-// 	idx = s->size;
-// 	while (idx > 3)
-// 	{
-// 		while (s->data[s->idx_a] != 0 && s->data[s->idx_a] != 1)
-// 			rotate_a(s);
-// 		push_b(s);
-// 		--idx;
-// 	}
-// 	sort_3(s);
-// 	if (s->data[s->idx_a - 1] < s->data[s->idx_a - 2])
-// 		swap_b(s);
-// 	while (idx < s->size)
-// 	{
-// 		push_a(s);
-// 		++idx;
-// 	}
-// }
+void	print_stack(t_stack *s)
+{
+	int	idx;
+
+	idx = 0;
+	while (idx < s->size)
+	{
+		printf ("%i ", s->data[idx]);
+		if (idx == s->idx_a - 1)
+			printf ("  ");
+		++idx;
+	}
+	printf("\n");
+}
 
 void	split_sort(t_stack *s, int split, int len)
 {
@@ -117,14 +111,10 @@ void	sort_100(t_stack *s)
 		split_sort(s, split, s->size - s->idx_a);
 	}
 	sort_3(s);
+	after_split_sort(s);
 }
 
 void	sort(t_stack *s)
 {
-	if (s->size <= 3)
-		sort_3(s);
-	// else if (s->size == 5)
-	// 	sort_5(s);
-	else
-		sort_100(s);
+	sort_100(s);
 }
