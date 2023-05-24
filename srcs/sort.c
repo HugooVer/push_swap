@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/23 18:51:17 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:12:09 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,38 @@ void	print_stack(t_stack *s)
 	printf("\n");
 }
 
+void	after_split_sort(t_stack *s)
+{
+	int	idx;
+	int	jdx;
+	int	look;
+
+	idx = 0;
+	jdx = s->size - 1;
+	look = s->size - 1;
+	while (jdx >= 0)
+	{
+		while (s->data[idx] != look && idx < s->idx_a - 1)
+			++idx;
+		if (s->data[idx] == look)
+		{
+			while (s->data[s->idx_a - 1] != look)
+			{
+				if ((s->idx_a - 1) - idx < idx - 0)
+					rotate_b(s);
+				else
+					reverse_rotate_b(s);
+			}
+			push_a(s);
+		}
+		--look;
+		idx = 0;
+		--jdx;
+		// printf("look = %i\n", look);
+		// printf("jdx == %i\n", jdx);
+	}
+}
+
 void	split_sort(t_stack *s, int split, int len)
 {
 	int	idx;
@@ -84,6 +116,8 @@ void	split_sort(t_stack *s, int split, int len)
 	{
 		if (!(s->idx_a < s->size - 3))
 			return ;
+		if (s->data[s->idx_a] == s->size - 1 || s->data[s->idx_a] == s->size - 2 || s->data[s->idx_a] == s->size - 3 )
+			rotate_a(s);
 		if (s->data[s->idx_a] >= split)
 			rotate_a(s);
 		else
@@ -93,7 +127,7 @@ void	split_sort(t_stack *s, int split, int len)
 			push_b(s);
 		}
 		++idx;
-		if (s->data[s->idx_a - 1] < split / 2)
+		if (s->data[s->idx_a - 1] <= split / 2)
 			rotate_b(s);
 	}
 }
@@ -111,7 +145,9 @@ void	sort_100(t_stack *s)
 		split_sort(s, split, s->size - s->idx_a);
 	}
 	sort_3(s);
+	// print_stack(s);
 	after_split_sort(s);
+	// print_stack(s);
 }
 
 void	sort(t_stack *s)
