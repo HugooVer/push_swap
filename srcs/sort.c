@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/24 11:19:37 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/24 19:40:51 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,51 +102,90 @@ void	after_split_sort(t_stack *s)
 		--look;
 		idx = 0;
 		--jdx;
-		// printf("look = %i\n", look);
-		// printf("jdx == %i\n", jdx);
 	}
 }
 
-void	split_sort(t_stack *s, int split, int len)
+// void	split_sort(t_stack *s, int split, int len)
+// {
+// 	int	idx;
+// 	int	i;
+
+// 	idx = 0;
+// 	while (idx < len + 1)
+// 	{
+// 		if (!(s->idx_a < s->size - 3))
+// 			return ;
+// 		if (s->data[s->idx_a] > s->size - 4)
+// 			rotate_a(s);
+// 		if (s->data[s->idx_a] >= )
+// 			rotate_a(s);
+// 		else
+// 		{
+// 			if (s->idx_a - 1 > 0 && s->data[s->idx_a - 1] <= split)
+// 				rotate_b(s);
+// 			push_b(s);
+// 		}
+// 		++idx;
+// 		if (s->idx_a - 1 > 0 && s->data[s->idx_a - 1] <= split)
+// 			rotate_b(s);
+// 	}
+// }
+
+void	split_sort(t_stack *s)
 {
+	int	chunk;
+	int	size;
 	int	idx;
 
+	if (s->size <= 100)
+		chunk = 4;
+	else
+		chunk = 8;
 	idx = 0;
-	while (idx < len + 1)
+	size = chunk;
+	while (chunk >= 0)
 	{
-		if (!(s->idx_a < s->size - 3))
-			return ;
-		if (s->data[s->idx_a] > s->size - 4)
-			rotate_a(s);
-		if (s->data[s->idx_a] >= split)
-			rotate_a(s);
-		else
+		while (idx <= s->size)
 		{
-			if (s->idx_a - 1 > 0 && s->data[s->idx_a - 1] <= split / 2)
-				rotate_b(s);
-			push_b(s);
+			if (!(s->idx_a < s->size - 3))
+				return ;
+			// printf("YA\n");
+			if (s->data[idx] > 2 * (s->size / chunk))
+				rotate_a(s);
+			else
+			{
+				if (s->idx_a - 1 > 0 && s->data[s->idx_a - 1] <= s->size / chunk)
+					rotate_b(s);
+				push_b(s);
+			}
+			++idx;
 		}
-		++idx;
-		if (s->data[s->idx_a - 1] <= split / 2)
+		if (s->idx_a - 1 > 0 && s->data[s->idx_a - 1] <= s->size / chunk)
 			rotate_b(s);
+		size = size - 2;
 	}
 }
 
 void	sort_100(t_stack *s)
 {
-	int	split;
-	int	loop;
+	// int	split;
+	// int	loop;
 
-	loop = 3;
-	split = 0;
-	while (s->idx_a < s->size - 3)
-	{
-		split = (((s->size - split) / loop) + split) * 2;
-		split_sort(s, split, s->size - s->idx_a);
-	}
-	sort_3(s);
+	// if (s->size >= 110)
+	// 	loop = 6;
+	// else
+	// 	loop = 3;
+	// split = 0;
+	// while (s->idx_a < s->size - 3)
+	// {
+	// 	split = ((s->size - 2 * split) / loop) + (2 * split);
+	// 	// printf("split == %i\n", split);
+	// 	split_sort(s, split, s->size - s->idx_a);
+	// }
+	split_sort(s);
+	// sort_3(s);
 	// print_stack(s);
-	after_split_sort(s);
+	// after_split_sort(s);
 	// print_stack(s);
 }
 
