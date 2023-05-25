@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/25 20:04:15 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:10:46 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*char_to_int(char **argv, t_stack *s)
 	{
 		if (ft_atoi_maxint(argv[idx], &s->data[idx - 1]) == 1)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			free(s->data);
 			exit(EXIT_FAILURE);
 		}
@@ -52,7 +52,7 @@ void	duplicate(t_stack *s)
 		{
 			if (s->data[idx] == s->data[jdx])
 			{
-				ft_printf("Error\n");
+				write(2, "Error\n", 6);
 				free(s->data);
 				exit(EXIT_FAILURE);
 			}

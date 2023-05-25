@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 10:44:52 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/18 17:52:22 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:10:46 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	not_digit(char *test)
 		{
 			if (ft_isdigit(*test) == 0)
 			{
-				ft_printf("Error\n");
+				write(2, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
 			++test;
@@ -31,7 +31,7 @@ void	not_digit(char *test)
 	{
 		if (ft_isdigit(*test) == 0)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		++test;
