@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 15:47:13 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:04:15 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*char_to_int(char **argv, t_stack *s)
 	}
 	s->data = malloc(sizeof(int) * s->size);
 	if (s->data == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	idx = 1;
 	while (argv[idx] != NULL)
 	{
@@ -69,7 +69,10 @@ int	*stack_copy(int *in_stack, t_stack *s)
 
 	out_stack = malloc(sizeof(int) * s->size);
 	if (out_stack == NULL)
-		return (NULL);
+	{
+		free(s->data);
+		exit(EXIT_FAILURE);
+	}
 	idx = 0;
 	while (idx < s->size)
 	{
