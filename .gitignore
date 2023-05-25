@@ -3,6 +3,7 @@ visualizer
 imgui.ini
 .vscode
 push_swap_visualizer/
+checker_linux
 
 # Prerequisites
 *.d

@@ -6,11 +6,27 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:46:26 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/20 16:05:23 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:17:11 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted_in_a(t_stack *s)
+{
+	int	idx;
+
+	idx = 0;
+	if (s->idx_a != 0)
+		return (0);
+	while (idx < s->size)
+	{
+		if (s->data[idx] != idx)
+			return (0);
+		++idx;
+	}
+	return (1);
+}
 
 void	first_things(int argc, char **argv, t_stack *s)
 {

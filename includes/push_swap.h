@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:05:11 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/23 18:51:15 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:17:35 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,5 @@ void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_a_b(t_stack *stack);
 
 void	sort(t_stack *stack);
-int		is_sorted_in_a(t_stack *s);
-
-void	print_stack(t_stack *s);
 
 #endif
