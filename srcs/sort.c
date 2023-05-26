@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:39 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/25 18:16:59 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:01:41 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,19 @@ void	after_split_sort(t_stack *s)
 void	split_sort(t_stack *s, int split, int len, double oui)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (i < len + 1)
 	{
 		if (!(s->idx_a < s->size - 3))
 			return ;
-		if (s->data[s->idx_a] > s->size - 4)
-			rotate_a(s);
-		if (s->data[s->idx_a] > s->size - 4)
-			rotate_a(s);
-		if (s->data[s->idx_a] > s->size - 4)
-			rotate_a(s);
+		while (j < 3)
+		{
+			if (s->data[s->idx_a] > s->size - 4)
+				rotate_a(s);
+		}
 		if (s->data[s->idx_a] > split)
 			rotate_a(s);
 		else
