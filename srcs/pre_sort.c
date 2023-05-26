@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:12:12 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/25 20:10:46 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:16:50 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ int	*stack_copy(int *in_stack, t_stack *s)
 	int	*out_stack;
 
 	out_stack = malloc(sizeof(int) * s->size);
-	if (out_stack == NULL)
-	{
-		free(s->data);
-		exit(EXIT_FAILURE);
-	}
 	idx = 0;
 	while (idx < s->size)
 	{
@@ -80,6 +75,17 @@ int	*stack_copy(int *in_stack, t_stack *s)
 		++idx;
 	}
 	return (out_stack);
+}
+
+void	free_tmp(t_stack *s, int *tmp_stack, int *tmp_stack0)
+{
+	if (tmp_stack == NULL || tmp_stack0 == NULL)
+	{
+		free(tmp_stack);
+		free(tmp_stack0);
+		free(s->data);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	pre_sort(t_stack *s)
@@ -92,6 +98,7 @@ void	pre_sort(t_stack *s)
 	duplicate(s);
 	tmp_stack = stack_copy(s->data, s);
 	tmp_stack0 = stack_copy(s->data, s);
+	free_tmp(s, tmp_stack, tmp_stack0);
 	ft_bubble_sort(tmp_stack, s->size);
 	idx = 0;
 	jdx = 0;
